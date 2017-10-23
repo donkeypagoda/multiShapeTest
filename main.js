@@ -3,7 +3,7 @@ console.log(rotationTable);
 let rotation = 0.01;
 let i = 0;
 let rotationIncrement = 1;
-let mallets = [];
+let shapes = [];
 
 //make a stupid pseudo-gong
 const gong = new Tone.Synth().toMaster()
@@ -16,23 +16,13 @@ speed.oninput = () => {
   rotationIncrement = parseInt(speed.value);
 };
 
-function Mallet() {
-  this.r = 20;
-  this.x = 240
-  this.y = 0;
-};
+const addTriangle = document.querySelector("#addTriangle")
 
-
-function init() {
-  canvas = document.getElementById("testCanvas");
-  context = canvas.getContext("2d");
-  context.clearRect(0, 0, context.width, context.height);
-  context.fillStyle = "lightblue";
-
-  // drawPolys();
-  gongLine();
-  window.requestAnimationFrame(drawPolys);
-};
+addTriangle.onclick = (e) => {
+  console.log(e);
+  shapes.push("triangle")
+  console.log(shapes);
+}
 
 function gongLine(){
   context.beginPath();
@@ -42,6 +32,18 @@ function gongLine(){
   context.stroke();
 }
 
+function init() {
+  canvas = document.getElementById("testCanvas");
+  context = canvas.getContext("2d");
+  context.clearRect(0, 0, context.width, context.height);
+  context.fillStyle = "lightblue";
+
+  // drawPolys();
+  gongLine();
+  window.requestAnimationFrame(drawState);
+};
+
+
 function drawLine(point1, point2){
   context.beginPath();
   context.moveTo(point1.x, point1.y);
@@ -50,31 +52,12 @@ function drawLine(point1, point2){
   context.stroke();
 }
 
-function drawPolys() {
+function drawState() {
   // reset transforms before clearing, I don't get this, I stole it from MDN and it works
   context.setTransform(1, 0, 0, 1, 0, 0);
   context.clearRect(0, 0, canvas.width, canvas.height);
   // translate - this moves the canvas around to the center
   context.translate(300, 300);
-  let mallet1 = new Mallet();
-  mallets.push(mallet1)
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  // adding a second mallet, need to breakout architecture soon
-
-  // adding two new mallets for triangle, the above should be used for the single point
-  let mallet2 = new Mallet();
-  mallet2.x = -125;
-  mallet2.y = 210;
-  mallets.push(mallet2)
-
-  let mallet3 = new Mallet();
-  mallet3.x = -125;
-  mallet3.y = -210;
-  mallets.push(mallet3)
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-
   // draw gongLine BEFORE rotation but AFTER setTransform
   gongLine();
   context.rotate(rotation);
@@ -148,6 +131,6 @@ function drawPolys() {
     }
 
 
-  window.requestAnimationFrame(drawPolys)
+  window.requestAnimationFrame(drawState)
 
 }

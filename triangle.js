@@ -6,7 +6,7 @@ function Mallet() {
 };
 
 
-function drawTriangle(context){
+function addTriangle(context){
   let mallet1 = new Mallet();
   mallet1.x = 240;
   mallet1.y = 0;
@@ -20,25 +20,14 @@ function drawTriangle(context){
   let mallet3 = new Mallet();
   mallet3.x = -125;
   mallet3.y = -210;
-  mallets.push(mallet3)
-  drawLine(mallet1, mallet2);
-  drawLine(mallet2, mallet3);
-  drawLine(mallet3, mallet1);
+  mallets.push(mallet3);
 
-}
-
-
-
-  // draw the mallet
+  // draw the mallets
   context.beginPath();
   context.arc(mallet1.x, mallet1.y, mallet1.r, 0, 2 * Math.PI, false);
   context.stroke();
   context.fill();
 
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  // this is the post first sucess test point, after this a new repo breakout, with new architecture will probably be neccessary
-  // create and draw more mallets
   context.beginPath();
   context.arc(mallet2.x, mallet2.y, mallet2.r, 0, 2 * Math.PI, false);
   context.stroke();
@@ -48,6 +37,13 @@ function drawTriangle(context){
   context.arc(mallet3.x, mallet3.y, mallet3.r, 0, 2 * Math.PI, false);
   context.stroke();
   context.fill();
+
+  drawLine(mallet1, mallet2);
+  drawLine(mallet2, mallet3);
+  drawLine(mallet3, mallet1);
+
+}
+
 
   // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 

@@ -65,7 +65,7 @@ function drawState() {
   // draw the shapes after the rotation begins
   for(let k = 0; k < shapes.length; k++){
     if (shapes[k] === triangle){
-      drawTriangle(context);
+      addTriangle(context);
     }
   }
 

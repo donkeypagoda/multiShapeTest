@@ -62,36 +62,14 @@ function drawState() {
   // draw gongLine BEFORE rotation but AFTER setTransform
   gongLine();
   context.rotate(rotation);
-  // draw the lines after the rotation begins
-  drawLine(mallet1, mallet2);
-  drawLine(mallet2, mallet3);
-  drawLine(mallet3, mallet1);
-
-  // draw the mallet
-  context.beginPath();
-  context.arc(mallet1.x, mallet1.y, mallet1.r, 0, 2 * Math.PI, false);
-  context.stroke();
-  context.fill();
+  // draw the shapes after the rotation begins
+  for(let k = 0; k < shapes.length; k++){
+    if (shapes[k] === triangle){
+      drawTriangle(context);
+    }
+  }
 
 
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  // this is the post first sucess test point, after this a new repo breakout, with new architecture will probably be neccessary
-  // create and draw more mallets
-  context.beginPath();
-  context.arc(mallet2.x, mallet2.y, mallet2.r, 0, 2 * Math.PI, false);
-  context.stroke();
-  context.fill();
-
-  context.beginPath();
-  context.arc(mallet3.x, mallet3.y, mallet3.r, 0, 2 * Math.PI, false);
-  context.stroke();
-  context.fill();
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  // this will figure out how often to bang a gong
-  // this needs to be modular for the number of gongs
   let gongTime = Math.floor(rotationTable.length / 3)
   // console.log(gongTime);
 

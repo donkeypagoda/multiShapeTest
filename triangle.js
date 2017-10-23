@@ -5,8 +5,7 @@ function Mallet() {
   this.y = 0;
 };
 
-
-function addTriangle(context){
+function drawTriangle(context){
   let mallet1 = new Mallet();
   mallet1.x = 240;
   mallet1.y = 0;
@@ -43,40 +42,3 @@ function addTriangle(context){
   drawLine(mallet3, mallet1);
 
 }
-
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  // this will figure out how often to bang a gong
-  // this needs to be modular for the number of gongs
-  let gongTime = Math.floor(rotationTable.length / 3)
-  // console.log(gongTime);
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-  // increment rotation and pull new frame
-  rotation = -((rotationTable[i] * 0.01).toFixed(3));
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-  // the below is all a hack to get the gong to right for three mallets and will have to be re-worked
-  if ( i > gongTime - rotationIncrement && i < gongTime + rotationIncrement){
-    gong.triggerAttackRelease('C4', '8n')
-    console.log("gong gong big old bong")
-    i += rotationIncrement;
-  }
-  else if ( i > 2 * gongTime - rotationIncrement && i < 2 * gongTime + rotationIncrement){
-    gong.triggerAttackRelease('C4', '8n')
-    console.log("gong gong big old bong")
-    i += rotationIncrement;
-  }
-
-  else if (i < rotationTable.length - (rotationIncrement +1)){
-    i += rotationIncrement;
-  }
-  else {
-      i = 0;
-      // trigger mallet strike
-      gong.triggerAttackRelease('C4', '8n')
-      console.log("gong gong big old bong")
-    }

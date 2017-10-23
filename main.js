@@ -1,35 +1,42 @@
 let rotationTable = Array.from(new Array(2512), (x, i) => (i * 0.25) + 0.25);
 console.log(rotationTable);
-let rotation = 0.01;
+let rotation1 = 0.01;
+let rotation2 = 0.01;
+let rotation3 = 0.01;
 let i = 0;
-let rotationIncrement = 1;
-// let shapes = [];
+let j = 0;
+let k = 0;
+let rotationIncrement1 = 1;
+let rotationIncrement2 = 1;
+let rotationIncrement3 = 1;
 
 //make a stupid pseudo-gong
-const gong = new Tone.Synth().toMaster()
+const gong1 = new Tone.Synth().toMaster()
+const gong2 = new Tone.Synth().toMaster()
+const gong3 = new Tone.Synth().toMaster()
 
 // grab the roation speed input slider
-const speed = document.querySelector("#rotationSpeed")
+const speed1 = document.querySelector("#rotationSpeed1")
+const speed2 = document.querySelector("#rotationSpeed2")
+const speed3 = document.querySelector("#rotationSpeed3")
 
 // handler for speed (need for speed)
-speed.oninput = () => {
-  rotationIncrement = parseInt(speed.value);
+speed1.oninput = () => {
+  rotationIncrement1 = parseInt(speed1.value);
+};
+speed2.oninput = () => {
+  rotationIncrement2 = parseInt(speed2.value);
+};
+speed3.oninput = () => {
+  rotationIncrement3 = parseInt(speed3.value);
 };
 
-// const addTriangle = document.querySelector("#addTriangle")
-//
-// addTriangle.onclick = (e) => {
-//   console.log(e);
-//   shapes.push("triangle")
-//   console.log(shapes);
-// }
-
 function gongLine(){
-  context.beginPath();
-  context.moveTo(500, 0);
-  context.lineTo(200, 0);
-  context.lineWidth = 1;
-  context.stroke();
+  context1.beginPath();
+  context1.moveTo(500, 0);
+  context1.lineTo(200, 0);
+  context1.lineWidth = 1;
+  context1.stroke();
 }
 
 
@@ -38,10 +45,20 @@ function init() {
   context1 = canvas1.getContext("2d");
   context1.clearRect(0, 0, context1.width, context1.height);
   context1.fillStyle = "lightblue";
+  gongLine();
+
+  canvas2 = document.getElementById("canvas2");
+  context2 = canvas1.getContext("2d");
+  context2.clearRect(0, 0, context2.width, context2.height);
+  context2.fillStyle = "red";
+
+  canvas3 = document.getElementById("canvas3");
+  context3 = canvas3.getContext("2d");
+  context3.clearRect(0, 0, context3.width, context3.height);
+  context3.fillStyle = "green";
 
   // drawPolys();
-  gongLine();
-  window.requestAnimationFrame(drawState);
+  window.requestAnimationFrame(drawState1);
 };
 
 
@@ -53,7 +70,7 @@ function drawLine(point1, point2){
   context.stroke();
 }
 
-function drawState() {
+function drawState1() {
   // reset transforms before clearing, I don't get this, I stole it from MDN and it works
   context1.setTransform(1, 0, 0, 1, 0, 0);
   context1.clearRect(0, 0, canvas1.width, canvas1.height);
@@ -63,22 +80,11 @@ function drawState() {
   gongLine();
   context1.rotate(rotation);
   // draw the shapes after the rotation begins
-  for(let k = 0; k < shapes.length; k++){
-    if (shapes[k] === triangle){
-      addTriangle(context);
-    }
-  }
-
-
-  let gongTime = Math.floor(rotationTable.length / 3)
-  // console.log(gongTime);
-
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
+  drawTriangle(context1)
+  let gongTime1 = Math.floor(rotationTable.length / 3)
   // increment rotation and pull new frame
-  rotation = -((rotationTable[i] * 0.01).toFixed(3));
+  rotation1 = -((rotationTable[i] * 0.01).toFixed(3));
 
-  // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
   // the below is all a hack to get the gong to right for three mallets and will have to be re-worked
   if ( i > gongTime - rotationIncrement && i < gongTime + rotationIncrement){
     gong.triggerAttackRelease('C4', '8n')
@@ -97,11 +103,8 @@ function drawState() {
   else {
       i = 0;
       // trigger mallet strike
-      gong.triggerAttackRelease('C4', '8n')
+      gong1.triggerAttackRelease('C4', '8n')
       console.log("gong gong big old bong")
     }
-
-
-  window.requestAnimationFrame(drawState)
-
+  window.requestAnimationFrame(drawState1)
 }

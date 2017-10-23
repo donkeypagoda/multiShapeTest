@@ -3,7 +3,7 @@ console.log(rotationTable);
 let rotation = 0.01;
 let i = 0;
 let rotationIncrement = 1;
-let shapes = [];
+// let shapes = [];
 
 //make a stupid pseudo-gong
 const gong = new Tone.Synth().toMaster()
@@ -16,13 +16,13 @@ speed.oninput = () => {
   rotationIncrement = parseInt(speed.value);
 };
 
-const addTriangle = document.querySelector("#addTriangle")
-
-addTriangle.onclick = (e) => {
-  console.log(e);
-  shapes.push("triangle")
-  console.log(shapes);
-}
+// const addTriangle = document.querySelector("#addTriangle")
+//
+// addTriangle.onclick = (e) => {
+//   console.log(e);
+//   shapes.push("triangle")
+//   console.log(shapes);
+// }
 
 function gongLine(){
   context.beginPath();
@@ -34,10 +34,10 @@ function gongLine(){
 
 
 function init() {
-  canvas = document.getElementById("testCanvas");
-  context = canvas.getContext("2d");
-  context.clearRect(0, 0, context.width, context.height);
-  context.fillStyle = "lightblue";
+  canvas1 = document.getElementById("canvas1");
+  context1 = canvas1.getContext("2d");
+  context1.clearRect(0, 0, context1.width, context1.height);
+  context1.fillStyle = "lightblue";
 
   // drawPolys();
   gongLine();
@@ -55,13 +55,13 @@ function drawLine(point1, point2){
 
 function drawState() {
   // reset transforms before clearing, I don't get this, I stole it from MDN and it works
-  context.setTransform(1, 0, 0, 1, 0, 0);
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  context1.setTransform(1, 0, 0, 1, 0, 0);
+  context1.clearRect(0, 0, canvas1.width, canvas1.height);
   // translate - this moves the canvas around to the center
-  context.translate(300, 300);
+  context1.translate(300, 300);
   // draw gongLine BEFORE rotation but AFTER setTransform
   gongLine();
-  context.rotate(rotation);
+  context1.rotate(rotation);
   // draw the shapes after the rotation begins
   for(let k = 0; k < shapes.length; k++){
     if (shapes[k] === triangle){

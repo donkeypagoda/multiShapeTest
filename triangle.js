@@ -30,8 +30,8 @@ function drawTriangle(context){
   context.stroke();
   context.fill();
 
-  drawLine(context, triangleMallet1, triangleMallet2);
-  drawLine(context, triangleMallet2, triangleMallet3);
-  drawLine(context, triangleMallet3, triangleMallet1);
+  singleLine(context, triangleMallet1, triangleMallet2);
+  singleLine(context, triangleMallet2, triangleMallet3);
+  singleLine(context, triangleMallet3, triangleMallet1);
 
 }

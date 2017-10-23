@@ -4,7 +4,7 @@ function drawLine(context){
   lineMallet1.y = 0;
 
   let lineMallet2 = new Mallet();
-  lineMallet2.x = 0;
+  lineMallet2.x = -240;
   lineMallet2.y = 0;
 
 
@@ -19,5 +19,5 @@ function drawLine(context){
   context.stroke();
   context.fill();
 
-  drawLine(context, lineMallet1, lineMallet2);
+  singleLine(context, lineMallet1, lineMallet2);
 }

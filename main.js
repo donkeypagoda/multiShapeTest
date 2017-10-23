@@ -4,11 +4,11 @@ let rotation1 = 0.01;
 let rotation2 = 0.01;
 let rotation3 = 0.01;
 let i = 0;
-let j = 250;
+let j = 0;
 let k = 0;
 let rotationIncrement1 = 1;
-let rotationIncrement2 = 25;
-let rotationIncrement3 = 15;
+let rotationIncrement2 = 1;
+let rotationIncrement3 = 1;
 
 //make a stupid pseudo-gong
 const gong1 = new Tone.Synth().toMaster()
@@ -79,20 +79,20 @@ function init() {
 
 function drawState() {
   // reset transforms before clearing, I don't get this, I stole it from MDN and it works
-  // context1.setTransform(1, 0, 0, 1, 0, 0);
+  context1.setTransform(1, 0, 0, 1, 0, 0);
   context1.clearRect(0, 0, canvas1.width, canvas1.height);
   // translate - this moves the canvas around to the center
-  // context1.translate(300, 300);
+  context1.translate(300, 300);
   // draw gongLine BEFORE rotation but AFTER setTransform
   gongLine(context1);
 
-  // context2.setTransform(1, 0, 0, 1, 0, 0);
+  context2.setTransform(1, 0, 0, 1, 0, 0);
   context2.clearRect(0, 0, canvas2.width, canvas2.height);
-  // context2.translate(300, 300);
+  context2.translate(300, 300);
 
-  // context3.setTransform(1, 0, 0, 1, 0, 0);
+  context3.setTransform(1, 0, 0, 1, 0, 0);
   context3.clearRect(0, 0, canvas3.width, canvas3.height);
-  // context3.translate(300, 300);
+  context3.translate(300, 300);
 
   context2.rotate(rotation2);
   drawCircle(context2);

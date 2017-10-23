@@ -32,6 +32,7 @@ function gongLine(){
   context.stroke();
 }
 
+
 function init() {
   canvas = document.getElementById("testCanvas");
   context = canvas.getContext("2d");
@@ -65,14 +66,6 @@ function drawState() {
   drawLine(mallet1, mallet2);
   drawLine(mallet2, mallet3);
   drawLine(mallet3, mallet1);
-
-  // circle path, this will have to be re-worked for other shapes, obvs
-  context.beginPath();
-  context.arc(0, 0, 240, 0, Math.PI * 2, false);
-  context.lineWidth = 1;
-  context.stroke();
-
-
 
   // draw the mallet
   context.beginPath();

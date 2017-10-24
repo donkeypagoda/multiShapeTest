@@ -7,8 +7,8 @@ function drawLine(context){
   lineMallet2.x = -240;
   lineMallet2.y = 0;
 
+  singleLine(context, lineMallet1, lineMallet2);
 
-  // mallet
   context.beginPath();
   context.arc(lineMallet1.x, lineMallet1.y, lineMallet1.r, 0, 2 * Math.PI, false);
   context.stroke();
@@ -19,5 +19,4 @@ function drawLine(context){
   context.stroke();
   context.fill();
 
-  singleLine(context, lineMallet1, lineMallet2);
 }

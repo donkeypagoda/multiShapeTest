@@ -13,28 +13,30 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body onload="init()">
-    <div>
-      <canvas id="canvas1" width="700" height="700"></canvas>
-      <canvas id="canvas2" width="700" height="700"></canvas>
-      <canvas id="canvas3" width="700" height="700"></canvas>
-    </div>
-    <div class="speeds">
-      <div>
-          <input id="rotationSpeed1" type="range" value="1" min="1" max="200">
-          <div>Triangle Speed</div>
+    <div class="big-div">
+      <div class="can-div">
+        <canvas id="canvas1" width="700" height="700"></canvas>
+        <canvas id="canvas2" width="700" height="700"></canvas>
+        <canvas id="canvas3" width="700" height="700"></canvas>
       </div>
-      <div>
-          <input id="rotationSpeed2" type="range" value="1" min="1" max="200">
-          <div>Circle Speed</div>
+      <div class="speeds">
+        <div>
+            <input id="rotationSpeed1" type="range" value="1" min="1" max="200">
+            <div>Triangle Speed</div>
+        </div>
+        <div>
+            <input id="rotationSpeed2" type="range" value="1" min="1" max="200">
+            <div>Circle Speed</div>
+        </div>
+        <div>
+            <input id="rotationSpeed3" type="range" value="1" min="1" max="200">
+            <div>Line Speed</div>
+        </div>
+        <div> </div>
+        <!-- <div>
+          <button id="addTriangle" type="button" name="triangle">Add Triangle</button>
+        </div> -->
       </div>
-      <div>
-          <input id="rotationSpeed3" type="range" value="1" min="1" max="200">
-          <div>Line Speed</div>
-      </div>
-      <div> </div>
-      <!-- <div>
-        <button id="addTriangle" type="button" name="triangle">Add Triangle</button>
-      </div> -->
     </div>
 </body>
 </html>

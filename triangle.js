@@ -13,6 +13,9 @@ function drawTriangle(context){
   triangleMallet3.x = -125;
   triangleMallet3.y = -210;
 
+  singleLine(context, triangleMallet1, triangleMallet2);
+  singleLine(context, triangleMallet2, triangleMallet3);
+  singleLine(context, triangleMallet3, triangleMallet1);
 
   // draw the mallets
   context.beginPath();
@@ -30,8 +33,5 @@ function drawTriangle(context){
   context.stroke();
   context.fill();
 
-  singleLine(context, triangleMallet1, triangleMallet2);
-  singleLine(context, triangleMallet2, triangleMallet3);
-  singleLine(context, triangleMallet3, triangleMallet1);
 
 }

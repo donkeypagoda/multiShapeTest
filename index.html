@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Multi Canvas Try</title>
+    <title>Canvas Animation Test</title>
     <script defer type="text/javascript" src="singleLine.js"></script>
     <script defer type="text/javascript" src="Tone.js"></script>
     <script defer type="text/javascript" src="triangle.js"></script>
@@ -14,24 +14,26 @@
   </head>
   <body onload="init()">
     <div>
-    <canvas id="canvas1" width="700" height="700"></canvas>
-    <canvas id="canvas2" width="700" height="700"></canvas>
-    <canvas id="canvas3" width="700" height="700"></canvas>
-    <div>
-        <input id="rotationSpeed1" type="range" value="1" min="1" max="200">
-        <div>Speed 1</div>
+      <canvas id="canvas1" width="700" height="700"></canvas>
+      <canvas id="canvas2" width="700" height="700"></canvas>
+      <canvas id="canvas3" width="700" height="700"></canvas>
     </div>
-    <div>
-        <input id="rotationSpeed2" type="range" value="1" min="1" max="200">
-        <div>Speed 2</div>
+    <div class="speeds">
+      <div>
+          <input id="rotationSpeed1" type="range" value="1" min="1" max="200">
+          <div>Speed 1</div>
+      </div>
+      <div>
+          <input id="rotationSpeed2" type="range" value="1" min="1" max="200">
+          <div>Speed 2</div>
+      </div>
+      <div>
+          <input id="rotationSpeed3" type="range" value="1" min="1" max="200">
+          <div>Speed 3</div>
+      </div>
+      <!-- <div>
+        <button id="addTriangle" type="button" name="triangle">Add Triangle</button>
+      </div> -->
     </div>
-    <div>
-        <input id="rotationSpeed3" type="range" value="1" min="1" max="200">
-        <div>Speed 3</div>
-    </div>
-    <div>
-      <button id="addTriangle" type="button" name="triangle">Add Triangle</button>
-    </div>
-  </div>
 </body>
 </html>

@@ -4,3 +4,9 @@ canvas {
     left: 0;
     background:transparent;
 }
+
+.speeds {
+    position:absolute;
+    bottom: 0;
+    right: 0;
+}

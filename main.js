@@ -113,12 +113,11 @@ function drawState() {
   rotation3 = -((rotationTable[k] * 0.01).toFixed(3));
   let gongTime3 = Math.floor(rotationTable.length / 2)
   if ( k > gongTime3 - rotationIncrement3 && k < gongTime3 + rotationIncrement3){
-    rotation3 += rotationIncrement3;
     gong3.triggerAttackRelease('C5', '8n')
     console.log("line")
     k += rotationIncrement3;
   }
-  else if (k < rotationTable.length - (rotationIncrement3 +1)){
+  else if (k < rotationTable.length - (rotationIncrement3 + 1)){
     k += rotationIncrement3;
   }
   else {

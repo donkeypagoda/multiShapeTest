@@ -7,8 +7,8 @@ let i = 0;
 let j = 0;
 let k = 0;
 let rotationIncrement1 = 1;
-let rotationIncrement2 = 1;
-let rotationIncrement3 = 1;
+let rotationIncrement2 = 15;
+let rotationIncrement3 = 7;
 
 //make a stupid pseudo-gong
 const gong1 = new Tone.Synth().toMaster()
@@ -73,7 +73,7 @@ function init() {
   context3.translate(300, 300);
 
   // drawState();
-  window.requestAnimationFrame(drawState());
+  window.requestAnimationFrame(drawState);
 };
 
 
@@ -99,7 +99,7 @@ function drawState() {
 
   rotation2 = -((rotationTable[j] * 0.01).toFixed(3));
   if (j < rotationTable.length - 1){
-    rotation2 += rotationIncrement2
+    j += rotationIncrement2
   }
   else {
     j = 0;
@@ -159,5 +159,5 @@ function drawState() {
       console.log("triangle");
     }
 
-  window.requestAnimationFrame(drawState());
+  window.requestAnimationFrame(drawState);
 }
